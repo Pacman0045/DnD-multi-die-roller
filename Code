@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+
+# Modules
+import random
+
+# Data
+Die_Set = {'D4': 5, 'D6': 7, 'D8': 9, 'D10': 11, 'D12': 13, 'D20': 21}
+Die_Set_List = {'D4', 'D6', 'D8', 'D10', 'D12', 'D20'}
+
+# Greeting
+print('D20 multi-die roller.\n')
+
+# List controls
+Controls = ("""
+    Controls
+    --------
+    To roll a D4  type: d4
+    To roll a D6  type: d6
+    To roll a D8  type: d8
+    To roll a D10 type: d10
+    To roll a D12 type: d12
+    To roll a D20 type: d20
+    -----------------------
+ To see these controls again type \'controls\'
+ """)
+
+print(Controls)
+
+# Dice Selector
+# D4, D6, D8, D10, D12, D20
+while True:
+    print('Select die to roll.')
+    Die_Type = input()
+    Die_Type = Die_Type.upper()
+    while Die_Type not in Die_Set_List:
+        print('Make a valid entry.')
+        break
+    else:
+        print('Select quantity.')
+        Die_Quantity = input()
+        i = 1
+        while i <= int(Die_Quantity):
+            if Die_Type in Die_Set_List:
+                print('Rolling' + ' ' + str(Die_Quantity) + ' ' +
+                      str(Die_Type))
+                while i <= int(Die_Quantity):
+                    print(
+                        'Die ' + str(i) + ' = ' +
+                        str(random.randrange(1, int(Die_Set[str(Die_Type)]))))
+                    i += 1
+            elif input() == 'controls':
+                print(Controls)
+        continue
