@@ -4,8 +4,8 @@
 import random
 
 # Data
-Die_Set = {'D4': 5, 'D6': 7, 'D8': 9, 'D10': 11, 'D12': 13, 'D20': 21}
-Die_Set_List = {'D4', 'D6', 'D8', 'D10', 'D12', 'D20'}
+Die_Available = {'D4': 5, 'D6': 7, 'D8': 9, 'D10': 11, 'D12': 13, 'D20': 21}
+Die_Names = {'D4', 'D6', 'D8', 'D10', 'D12', 'D20'}
 
 # Greeting
 print('D20 multi-die roller.\n')
@@ -32,7 +32,7 @@ while True:
     print('Select die to roll.')
     Die_Type = input()
     Die_Type = Die_Type.upper()
-    while Die_Type not in Die_Set_List:
+    while Die_Type not in Die_Names:
         print('Make a valid entry.')
         break
     else:
@@ -40,13 +40,13 @@ while True:
         Die_Quantity = input()
         i = 1
         while i <= int(Die_Quantity):
-            if Die_Type in Die_Set_List:
+            if Die_Type in Die_Names:
                 print('Rolling' + ' ' + str(Die_Quantity) + ' ' +
                       str(Die_Type))
                 while i <= int(Die_Quantity):
                     print(
                         'Die ' + str(i) + ' = ' +
-                        str(random.randrange(1, int(Die_Set[str(Die_Type)]))))
+                        str(random.randrange(1, int(Die_Available[str(Die_Type)]))))
                     i += 1
             elif input() == 'controls':
                 print(Controls)
