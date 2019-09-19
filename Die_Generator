@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+
+# Modules and files
+
+# import Select_Die, Select_Quantity, Calculation
+import Select_Die as sd
+import Select_Quantity as sq
+import Calculation as ca
+
+
+# Greeting
+print("\n"
+            "    -----------------------------\n"
+            "    Wecome to Pacman's Die Roller\n"
+            "    -----------------------------\n"
+            "")
+
+# List controls
+controls = ("\n"
+            "    Controls\n"
+            "    --------\n"
+            "    To roll a D4  type: d4\n"
+            "    To roll a D6  type: d6\n"
+            "    To roll a D8  type: d8\n"
+            "    To roll a D10 type: d10\n"
+            "    To roll a D12 type: d12\n"
+            "    To roll a D20 type: d20\n"
+            "    To roll a  %  type: %\n"
+            "    To exit prog. type: quit\n"
+            "    -----------------------\n"
+            " To see these controls again type: \'controls\'\n\n")
+
+print(controls)
+# Choose your dice type
+while True:
+    user_input1 = input('Select die to roll: ').upper()
+    selected_die = sd.die_selector(user_input1)
+# Choose your dice quantity
+    user_input2 = input('Select die quantity to roll: ').upper()
+    selected_quantity = sq.quantity_selector(user_input2)
+# Calculate your roll(s)
+    calculation = ca.calc(user_input1, user_input2)
+
